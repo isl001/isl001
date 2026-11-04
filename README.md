@@ -1,26 +1,53 @@
-# Hi, I'm Islam Hussein
+# Hi, I'm Islam Hussein 👋
 
-I am a Software Engineering student and Android developer with a growing focus on AI and data science. I enjoy building practical products that combine clean mobile engineering, thoughtful user experience, and data-driven problem solving. I am currently strengthening my portfolio for internships and early-career roles in software engineering, Android development, AI, and data science.
+**Junior DevSecOps / Cloud Engineer** · Cairo, Egypt
 
-## Technical Skills
+I build CI/CD pipelines that catch security problems **before** code reaches production, and I like finding the root cause when things break.
+Communications & Computer Engineering graduate (2026) · CCNA · NTI DevSecOps program (D004).
 
-- **Mobile Development:** Android, Kotlin, Android Studio, MVVM, LiveData, ViewBinding, Navigation Component
-- **Data & Backend Integration:** Retrofit, REST APIs, Room, SQLite, SharedPreferences
-- **Programming:** Kotlin, Python, SQL
-- **AI & Data Science:** Data cleaning, exploratory data analysis, feature engineering, machine learning model development
-- **Tools & Workflow:** Git, GitHub, Gradle, Jupyter, Streamlit
+---
 
-## Featured Projects
+## 🔐 Featured project: [SecureFlow](https://github.com/isl001/secureflow)
 
-### [Recipe App Android](https://github.com/isl001/Recipe-App-Android)
-An Android recipe discovery application built with **Kotlin**, **MVVM**, **Room**, and **Retrofit**. The project includes authentication, recipe search, detailed meal views, favorites, and offline access to saved recipes.
+An end-to-end DevSecOps pipeline for a FastAPI + PostgreSQL app. Every pull request must pass **6 required checks** before it can merge:
 
-### [Hotel Booking Cancellation Prediction](https://github.com/isl001/Hotel-Booking-Cancellation-Prediction)
-A machine learning project focused on predicting hotel booking cancellations using data preprocessing, exploratory data analysis, feature engineering, and model training workflows.
+| Gate | Tool | What it catches |
+|---|---|---|
+| `secret-scan` | Gitleaks (+ pre-commit hook) | passwords and tokens in the Git history |
+| `sast` | SonarCloud Quality Gate | dangerous patterns in the code |
+| `sca` | pip-audit (+ Dependabot, Snyk) | known CVEs in Python libraries |
+| `image-scan` | Trivy | vulnerabilities inside the built Docker image |
+| `dast` | OWASP ZAP | security issues in the **running** app |
+| `build` | GitHub Actions + Docker | the app builds |
 
-## Contact
+Highlights:
+- Every gate was **tested with a negative test** (known-bad code → merge blocked).
+- ZAP found a real bug: a NUL byte made the API crash with a 500 → fixed with input validation.
+- Third-party actions pinned to commit SHAs, secrets kept out of Git, non-root multi-arch images on GHCR.
+- Triage decisions (fix / accept / false positive) documented in the README.
 
-- **Email:** Islam.Ahmed.53@h-eng.helwan.edu.eg
-- **GitHub:** [github.com/isl001](https://github.com/isl001)
+---
 
-I am open to internships, entry-level opportunities, and collaborative projects in software engineering, Android development, AI, and data science.
+## 🧪 Other projects
+
+- **[ElectroQA Studio](https://github.com/isl001/electroqa-studio)** — graduation project (5-person team). AI-assisted QA automation for Electron apps: an LLM agent explores the UI through Playwright MCP, generates Playwright tests, runs them and reports the results.
+- **[Hotel Booking Cancellation Prediction](https://github.com/isl001/Hotel-Booking-Cancellation-Prediction)** — machine learning (EDA, feature engineering, Random Forest) deployed with Streamlit.
+- **[Recipe App Android](https://github.com/isl001/Recipe-App-Android)** — Kotlin, MVVM, Room, Retrofit, offline favorites.
+
+---
+
+## 🛠️ Skills
+
+**Hands-on:** Linux · Bash · Python · Git & GitHub Actions · Docker & Docker Compose · AWS (IAM, EC2, ALB, Auto Scaling, RDS, S3, CloudWatch) · Networking (CCNA: TCP/IP, DNS, HTTP, TLS)
+
+**Security tools:** Gitleaks · SonarQube/SonarCloud · Snyk · pip-audit · Trivy · OWASP ZAP · Dependabot
+
+**Currently learning:** Kubernetes · Terraform · Ansible · Prometheus & Grafana · Jenkins
+
+**Also:** AI & data science (Python, scikit-learn, Streamlit) · Android (Kotlin)
+
+---
+
+## 📫 Contact
+
+[LinkedIn](https://www.linkedin.com/in/islam-hussein-44675a26a)
