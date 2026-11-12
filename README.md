@@ -1,6 +1,6 @@
-[# Hi, I'm Islam El-Badawy 👋
+# Hi, I'm Islam El-Badawy 👋
 
-**Junior DevSecOps / Cloud Engineer** · Cairo, Egypt
+**DevSecOps / Cloud Engineer (junior)** · Cairo, Egypt
 
 I build CI/CD pipelines that catch security problems **before** code reaches production, and I like finding the root cause when things break.
 Communications & Computer Engineering graduate (2026) · CCNA · NTI DevSecOps program (D004).
@@ -9,7 +9,9 @@ Communications & Computer Engineering graduate (2026) · CCNA · NTI DevSecOps p
 
 ## 🔐 Featured project: [SecureFlow](https://github.com/isl001/secureflow)
 
-An end-to-end DevSecOps pipeline for a FastAPI + PostgreSQL app. Every pull request must pass **6 required checks** before it can merge:
+An end-to-end DevSecOps project for a FastAPI + PostgreSQL app: from a pull request to a running service on AWS.
+
+**Pipeline.** Every pull request must pass **6 required checks** before it can merge:
 
 | Gate | Tool | What it catches |
 |---|---|---|
@@ -20,11 +22,16 @@ An end-to-end DevSecOps pipeline for a FastAPI + PostgreSQL app. Every pull requ
 | `dast` | OWASP ZAP | security issues in the **running** app |
 | `build` | GitHub Actions + Docker | the app builds |
 
-Highlights:
-- Every gate was **tested with a negative test** (known-bad code → merge blocked).
+- Every gate was **proven with a negative test** (known-bad change → merge blocked).
 - ZAP found a real bug: a NUL byte made the API crash with a 500 → fixed with input validation.
 - Third-party actions pinned to commit SHAs, secrets kept out of Git, non-root multi-arch images on GHCR.
-- Triage decisions (fix / accept / false positive) documented in the README.
+- A new base-image CVE (zlib) broke the image scan on an unrelated PR → verified, patched and documented.
+
+**AWS.** The published image runs in a network I designed and built with the AWS CLI:
+
+- 3-tier VPC across 2 Availability Zones (public / app / database subnets), one route table per tier, chained security groups → [design](https://github.com/isl001/secureflow/blob/main/docs/network.md)
+- App server in a private subnet behind an Application Load Balancer: no public IP, no SSH (IAM role + Session Manager), IMDSv2 required
+- Health-check failure tested on purpose, then everything that costs money cleaned up and verified → [deploy lab with screenshots](https://github.com/isl001/secureflow/blob/main/docs/deploy-aws-lab.md)
 
 ---
 
@@ -38,11 +45,13 @@ Highlights:
 
 ## 🛠️ Skills
 
-**Hands-on:** Linux · Bash · Python · Git & GitHub Actions · Docker & Docker Compose · AWS (IAM, EC2, ALB, Auto Scaling, RDS, S3, CloudWatch) · Networking (CCNA: TCP/IP, DNS, HTTP, TLS)
+**Hands-on:** Linux · Bash scripting · Git & GitHub Actions · Docker & Docker Compose · Python (automation) · Networking (CCNA: TCP/IP, DNS, HTTP, TLS)
+
+**AWS:** IAM (users, policies, roles) · VPC (subnets, route tables, NAT, security groups, NACLs) · EC2 · ALB · Auto Scaling · RDS · S3 · Systems Manager Session Manager
 
 **Security tools:** Gitleaks · SonarQube/SonarCloud · Snyk · pip-audit · Trivy · OWASP ZAP · Dependabot
 
-**Currently learning:** Kubernetes · Terraform · Ansible · Prometheus & Grafana · Jenkins
+**Currently working toward:** AWS Solutions Architect – Associate · Terraform · Kubernetes (CKA)
 
 **Also:** AI & data science (Python, scikit-learn, Streamlit) · Android (Kotlin)
 
@@ -51,4 +60,3 @@ Highlights:
 ## 📫 Contact
 
 [LinkedIn](https://www.linkedin.com/in/islam-hussein-44675a26a)
-](https://github.com/isl001/isl001/edit/main/README.md)
